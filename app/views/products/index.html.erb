@@ -1,0 +1,38 @@
+<h1>Products</h1>
+
+<%= form_tag products_path, :method => :get, :id => 'products-search' do %>
+	
+	<label for="custom">Custom</label>
+	<div class="field">
+		<input type="search" id="custom">
+		<ul class="products-list"></ul>
+	</div>
+<% end %>
+
+
+<script type="text/javascript">
+	$(function(){
+		
+		$('#custom').liveSearch({
+			considerSpaces:	true, // Spaces are treated as any other character
+			resultsList:		$('.products-list'), // jQuery element of the result list
+			template:				$('#product-template'), // jQuery element of the text/html-template, should represent 1 result
+			noResultsText:	false, // Don't print out "no results" - just hide it
+			blurOnEscape:		false, // Keep focus on element if Escape key is hit
+			request: {
+				type:			'GET', // AJAX will use GET
+				dataType:	'JSON', // AJAX will expect a JSON response
+				url:			'/products', // Where to send the request
+				data:			{ type: 'full' }, // Add "?type=full" to the request
+				success: function(data, status, xhr){ console.log(status) }, // Custom success callback (called from within the AJAX success callback)
+				error:		function(xhr, status, data){ alert('Implement proper error handling here') } // Custom error callback (called from within the AJAX error callback)
+			}
+		});
+	})
+</script>
+
+<script type="text/html-template" id="product-template">
+	<span class="name">${name}</span>
+	<span class="price">€${price}</span>
+	<span class="description">${description}</span>
+</script>

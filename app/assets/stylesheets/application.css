@@ -8,6 +8,85 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require scaffolds
  *= require_self
- *= require_tree .
-*/
+ */
+
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.field{ position: relative; }
+
+.field input[type=search]{
+	width: 180px;
+	height: 19px;
+}
+
+.jquery-livesearch-results, .products-list{
+	list-style: none;
+	position: absolute;
+	z-index: 5;
+	top: 21px;
+	background: #f7f7f7;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eeeeee')";
+	background: -webkit-linear-gradient(#fff, #eee);
+	background: -moz-linear-gradient(#fff, #eee);
+	background: -ms-linear-gradient(#fff, #eee);
+	background: -o-linear-gradient(#fff, #eee);
+	background: linear-gradient(#fff, #eee);
+	-webkit-box-shadow: 0px 2px 6px #999;
+	box-shadow: 0px 2px 6px #999;
+	border-radius: 4px;
+}
+
+.jquery-livesearch-results li, .products-list li{
+	display: block;
+	width: 160px;
+	padding: 3px 10px;
+	color: #222;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+}
+
+.jquery-livesearch-results li:first-child, .products-list li:first-child{ border-radius: 4px 4px 0px 0px; }
+.jquery-livesearch-results li:last-child, .products-list li:last-child{ border-radius: 0px 0px 4px 4px; }
+.jquery-livesearch-results li:first-child:last-child, .products-list li:first-child:last-child{ border-radius: 4px; }
+
+.jquery-livesearch-results li.hover, .products-list li.hover{
+	background: -webkit-linear-gradient(#599bdc, #3072b3);
+	background: #3c7ebf;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#599bdc', EndColorStr='#3072b3')";
+	background: -webkit-linear-gradient(#599bdc, #3072b3);
+	background: -moz-linear-gradient(#599bdc, #3072b3);
+	background: -ms-linear-gradient(#599bdc, #3072b3);
+	background: -o-linear-gradient(#599bdc, #3072b3);
+	background: linear-gradient(#599bdc, #3072b3);
+	color: #fff;
+}
+
+.products-list li .name{
+	display: block;
+	float: left;
+}
+
+.products-list li .price{
+	display: block;
+	float: right;
+}
+
+.products-list li .description{
+	display: block;
+	clear: both;
+	color: #999;
+	font-weight: normal;
+	font-size: 11px;
+	font-style: italic;
+}
+.products-list li:hover .description{
+	color: #ccc;
+}
+
